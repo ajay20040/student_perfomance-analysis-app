@@ -6,7 +6,7 @@ np.random.seed(42)
 
 n = 120
 
-# Create dataset
+# Create  the dataset
 df = pd.DataFrame({
     "StudentID": np.arange(1, n+1),
     "Subject": np.random.choice(["Math", "Science", "English", "Computer"], n),
@@ -22,34 +22,33 @@ print(df.head())
 print("\nDataset Info:")
 print(df.info())
 
-# ---------------------------
+
 # DATA CLEANING
-# ---------------------------
+
 df = df.dropna()
 
-# ---------------------------
+
 # SUMMARY
-# ---------------------------
+
 print("\nSummary Statistics:")
 print(df.describe())
 
-# ---------------------------
 # ANALYSIS 1 (Subject-wise Marks)
-# ---------------------------
+
 subject_marks = df.groupby("Subject")["Marks"].mean()
 
 print("\nAverage Marks by Subject:")
 print(subject_marks)
 
-# ---------------------------
+
 # ANALYSIS 2 (Study Hours vs Marks)
-# ---------------------------
+
 print("\nCorrelation:")
 print(df[["StudyHours", "Marks"]].corr())
 
-# ---------------------------
+
 # VISUALIZATION (ONLY 2)
-# ---------------------------
+
 
 # 1️⃣ Bar Chart
 plt.figure(figsize=(6,4))
